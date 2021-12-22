@@ -26,14 +26,14 @@ string * x = char**
 ### Get a specific element from a string
 ---
 ```C
-char *splitAtIndex(char *string, char splitBy, int iteration);
+char *elementAtIndex(char *string, char delimiter, int index);
 ```
 
 char *string: An array of chars or a string with the element which will be extracted.
 
-char splitBy: The symbol which divides the elements.
+char delimiter: The symbol which divides the elements.
 
-int iteration: The index of the element that has to be extracted.
+int index: The index of the element that has to be extracted.
 
 returns: A char * or a string which contains the wanted element.
 
@@ -45,12 +45,12 @@ char *name = splitAtIndex(str, ':', 4); // str will contain Jannik
 ### Get all elements from a string as an array
 ---
 ```C
-char **splitString(char *string, char splitBy);
+char **splitString(char *string, char delimiter);
 ```
 
 char *string: An array of chars or a string with the elements which will be extracted.
 
-char splitBy: The symbol which divides the elements.
+char delimiter: The symbol which divides the elements.
 
 returns: a char ** or a string * which contains all elements.
 
@@ -62,12 +62,12 @@ char **names = splitString(str, ':'); // names will contain an array of all elem
 ### Count how many elements there are
 ---
 ```C
-int countElements(char *string, char splitBy);
+int countElements(char *string, char delimiter);
 ```
 
 char *string: An array of chars or a string with the elements.
 
-char splitBy: The symbol which divides the elements.
+char delimiter: The symbol which divides the elements.
 
 returns: The amount of elements found in the string
 
