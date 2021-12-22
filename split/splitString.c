@@ -4,39 +4,39 @@
 
 #include "splitString.h"
 
-// Returns the specific element from "string" on position "iteration"
-char *splitAtIndex(char *string, char splitBy, int iteration) {
-    int foundSplits = 0, startSplitAt = 0, endSplitAt = 0;
+// Returns the specific element from "string" on position "index"
+char *elementAtIndex(char *string, char delimiter, int index) {
+    int foundElements = 0, startElementAt = 0, endElementAt = 0;
     for (int i = 0; i < strlen(string); i++) {
-        if (string[i + 1] == '\0' && foundSplits == iteration) {
-            endSplitAt = i + 1;
+        if (string[i + 1] == '\0' && foundElements == index) {
+            endElementAt = i + 1;
             break;
         }
-        if (string[i] == splitBy) {
-            foundSplits++;
-            if (foundSplits == iteration)
-                startSplitAt = i + 1;
-            if (foundSplits - 1 == iteration) {
-                endSplitAt = i;
+        if (string[i] == delimiter) {
+            foundElements++;
+            if (foundElements == index)
+                startElementAt = i + 1;
+            if (foundElements - 1 == index) {
+                endElementAt = i;
                 break;
             }
         }
     }
-    char *buffer = malloc(sizeof(char) * (endSplitAt - startSplitAt + 1));
-    for (int i = 0; i < endSplitAt - startSplitAt + 1; i++) {
-        buffer[i] = string[startSplitAt + i];
+    char *buffer = malloc(sizeof(char) * (endElementAt - startElementAt + 1));
+    for (int i = 0; i < endElementAt - startElementAt + 1; i++) {
+        buffer[i] = string[startElementAt + i];
     }
-    buffer[endSplitAt - startSplitAt] = '\0';
+    buffer[endElementAt - startElementAt] = '\0';
     return buffer;
 }
 
 // Returns the amount of elements that shall be split
-int countElements(char *string, char splitBy) {
+int countElements(char *string, char delimiter) {
     int amount = 0;
     for (int i = 0; i < strlen(string); i++) {
-        if (string[i] == splitBy) amount++;
+        if (string[i] == delimiter) amount++;
         if (string[i + 1] == '\0') {
-            if (string[i] != splitBy) {
+            if (string[i] != delimiter) {
                 amount++;
             }
             break;
@@ -46,12 +46,12 @@ int countElements(char *string, char splitBy) {
 }
 
 // Returns all elements that shall be split
-char **splitString(char *string, char splitBy) {
-    int textSplits = countElements(string, splitBy);
+char **splitString(char *string, char delimiter) {
+    int textSplits = countElements(string, delimiter);
     char **stringArray = malloc(sizeof(char *) * textSplits);
 
     for (int i = 0; i < textSplits; i++) {
-        stringArray[i] = splitAtIndex(string, splitBy, i);
+        stringArray[i] = elementAtIndex(string, delimiter, i);
     }
     return stringArray;
 }
