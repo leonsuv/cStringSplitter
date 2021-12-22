@@ -8,7 +8,8 @@
 #include <string.h>
 #include <malloc.h>
 
-char **splitString(char *string, char splitBy);
-char *splitAtIndex(char *string, char splitBy, int iteration);
+char *splitAtIndex(char *string, char delimiter, int index);
+char **splitString(char *string, char delimiter);
+int countElements(char *string, char delimiter);
 
 #endif //LINESPLITTER_SPLITSTRING_H
