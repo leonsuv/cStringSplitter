@@ -1,10 +1,6 @@
 # cStringSplitter
 
-I've seen many people who struggle writing a string splitter for C.
-
-So I decided to write one. This one.
-
-Flex: I wrote this in 15 minutes.
+Algorithm training purposes
 
 ## Information for beginners
 
