@@ -1,5 +1,5 @@
 //
-// Created by leons on 11.03.2021.
+// Created by leonsuv on 11.03.2021.
 //
 
 #ifndef LINESPLITTER_SPLITSTRING_H
@@ -8,7 +8,7 @@
 #include <string.h>
 #include <malloc.h>
 
-char *splitAtIndex(char *string, char delimiter, int index);
+char *elementAtIndex(char *string, char delimiter, int index);
 char **splitString(char *string, char delimiter);
 int countElements(char *string, char delimiter);
 
